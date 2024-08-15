@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="@color/app_color_primary"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_notification_text"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:text="Caesar Chipper Implementation"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_encrypt_tools"
+        android:text="--------   Encryption Tools  --------"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:textAlignment="center"
+        android:padding="8dp"
+        android:background="@color/app_color_secondary"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_plain_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_encrypt_tools">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_plain_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Input Plain Text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_encrypt_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/til_plain_text">
+
+        <EditText
+            android:id="@+id/et_encrypt_key"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:inputType="number"
+            android:hint="Input Key Number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_encrypt"
+        android:layout_marginHorizontal="24dp"
+        app:layout_constraintTop_toBottomOf="@id/til_encrypt_key"
+        android:layout_marginTop="16dp"
+        android:text="Encrypt"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_encrypted_text"
+        tools:text="Encrypted Text : "
+        app:layout_constraintTop_toBottomOf="@id/btn_encrypt"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_decrypt_tools"
+        android:text="--------   Decryption Tools  --------"
+        app:layout_constraintTop_toBottomOf="@id/tv_encrypted_text"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:textAlignment="center"
+        android:background="@color/app_color_secondary"
+        android:textColor="@color/white"
+        android:padding="8dp"
+        android:layout_marginTop="24dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_decrypted_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_decrypt_tools">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_decrypted_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Input Encrypted Text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_decrypt_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/til_decrypted_text">
+
+        <EditText
+            android:id="@+id/et_decrypt_key"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:inputType="number"
+            android:hint="Input Key Number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_decrypt"
+        android:layout_marginHorizontal="24dp"
+        app:layout_constraintTop_toBottomOf="@id/til_decrypt_key"
+        android:layout_marginTop="16dp"
+        android:text="Decrypt"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_decrypted_text"
+        tools:text="Decrypted Text : "
+        app:layout_constraintTop_toBottomOf="@id/btn_decrypt"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="24dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
